@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpsVision Dashboard</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="bg"></div>
+    <header class="topbar">
+      <div class="brand">
+        <a class="brand-link" href="index.html">
+          <div class="logo">OV</div>
+          <div class="brand-text">
+            <div class="title">OpsVision</div>
+            <div class="subtitle">System Monitoring Dashboard</div>
+          </div>
+        </a>
+      </div>
+      <div class="actions">
+        <button id="themeToggle" class="btn btn-ghost" type="button">Theme</button>
+        <button id="collectNow" class="btn btn-primary" type="button">Collect Now</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="row">
+        <div class="card alert-card">
+          <div class="row-head">
+            <div>
+              <div class="kicker">Alerts</div>
+              <h2 class="h2">Notifications</h2>
+            </div>
+            <div class="pill" id="statusPill">Connecting…</div>
+          </div>
+          <div id="alerts" class="alerts">
+            <div class="muted">No alerts yet. We’ll show warnings here when thresholds are exceeded.</div>
+          </div>
+          <div class="meta">
+            <div><span class="muted">Auto-refresh:</span> <span id="refreshLabel">5s</span></div>
+            <div><span class="muted">Samples shown:</span> <span id="limitLabel">200</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid-3">
+        <div class="card">
+          <div class="row-head">
+            <div>
+              <div class="kicker">CPU</div>
+              <h2 class="h2">Usage Trend</h2>
+            </div>
+            <div class="big-number" id="cpuNow">—%</div>
+          </div>
+          <canvas id="cpuChart" height="140"></canvas>
+        </div>
+
+        <div class="card">
+          <div class="row-head">
+            <div>
+              <div class="kicker">Memory</div>
+              <h2 class="h2">Usage Trend</h2>
+            </div>
+            <div class="big-number" id="memNow">—%</div>
+          </div>
+          <canvas id="memChart" height="140"></canvas>
+        </div>
+
+        <div class="card">
+          <div class="row-head">
+            <div>
+              <div class="kicker">Disk</div>
+              <h2 class="h2">Usage Trend</h2>
+            </div>
+            <div class="big-number" id="diskNow">—%</div>
+          </div>
+          <canvas id="diskChart" height="140"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span id="lastUpdated" class="muted">Last updated: —</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="assets/theme.js"></script>
+    <script src="assets/api.js"></script>
+    <script src="assets/dashboard.js"></script>
+  </body>
+</html>
+
